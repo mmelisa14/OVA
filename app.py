@@ -121,25 +121,9 @@ st.set_page_config(
 )
 st.markdown("""
 <style>
-
-/* ascunde complet butonul collapse sidebar */
-button[data-testid="collapsedControl"] {
-    display: none !important;
-}
-
-/* fallback vechi */
-[data-testid="stSidebarCollapseButton"] {
-    display: none !important;
-}
-
-/* fallback nou streamlit */
-button[kind="header"] {
-    display: none !important;
-}
-
-/* fallback universal */
-header button {
-    display: none !important;
+/* păstrăm sidebar vizibil pe toate browserele + cloud */
+[data-testid="collapsedControl"] {
+    opacity: 0.25 !important;
 }
 
 </style>
