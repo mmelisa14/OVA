@@ -119,15 +119,7 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded",
 )
-st.markdown("""
-<style>
-/* păstrăm sidebar vizibil pe toate browserele + cloud */
-[data-testid="collapsedControl"] {
-    opacity: 0.25 !important;
-}
 
-</style>
-""", unsafe_allow_html=True)
 
 st.markdown("""
 <style>
@@ -479,8 +471,45 @@ def carousel(images, key, idx_key):
     """, unsafe_allow_html=True)
     st.markdown("""
     <style>
+    [data-testid="collapsedControl"] {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        position: fixed !important;
+        top: 1rem !important;
+        left: 1rem !important;
+        z-index: 9999 !important;
+        background: #EDE3D5 !important;
+        border: 1px solid #C8B89A !important;
+        border-radius: 50% !important;
+        width: 2.2rem !important;
+        height: 2.2rem !important;
+        align-items: center !important;
+        justify-content: center !important;
+        cursor: pointer !important;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.12) !important;
+    }
+    [data-testid="collapsedControl"]:hover {
+        background: #D6C8B4 !important;
+        box-shadow: 0 3px 12px rgba(139,94,26,0.2) !important;
+    }
     [data-testid="collapsedControl"] svg {
+        fill: #8B5E1A !important;
+        width: 1rem !important;
+        height: 1rem !important;
+    }
+
+}
+
+/* backup selector pentru versiuni Streamlit diferite */
+[data-testid="stSidebarCollapseButton"] {
     display: none !important;
+}
+
+/* încă un fallback universal */
+section[data-testid="stSidebar"] > div:first-child button {
+    display: none !important;
+}
 }
     </style>
     """, unsafe_allow_html=True)
